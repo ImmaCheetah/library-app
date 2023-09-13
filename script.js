@@ -1,26 +1,26 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+// Book constructor
+function Book(title, author, pages, readState) {
     this.title = title
     this.author = author
     this.pages = pages
-    this.read = read
+    this.readState = readState
     this.info = function() {
-        return `${title} by ${author}, ${pages} pages, ${read}`;
+        return `${title} by ${author}, ${pages} pages, ${readState}`; //
     }
 }
 
+// Creates new variable each time it's called and adds new object to myLibrary array
 function addBookToLibrary() {
     const book = new Book(prompt('title?'), prompt('author?'), prompt('pages?'), prompt('read?'));
-
-    console.log(book);
-    console.log(book.info());
     myLibrary.push(book);
-    console.log(myLibrary[0], myLibrary[1]);
 }
 
 addBookToLibrary();
 addBookToLibrary();
+
+
 
 // const arr = [];
 // function foo() {
