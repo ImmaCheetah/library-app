@@ -48,7 +48,7 @@ function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         // Card div
         const bookCard = document.createElement('div');
-
+        bookCard.classList.add('book-card');
 
         // Add each info to element then append to div
         // Book info
