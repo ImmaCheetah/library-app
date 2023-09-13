@@ -24,8 +24,16 @@ function addBookToLibrary() {
 }
 
 addBookToLibrary();
+addBookToLibrary();
+addBookToLibrary();
 
+function displayBooks() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        return myLibrary[i];
+    }
+}
 
+console.log(displayBooks());
 
 // const arr = [];
 // function foo() {
