@@ -1,4 +1,18 @@
-const myLibrary = [];
+// Main array to hold all book objects
+const myLibrary = [
+    {
+        title: "Book 1",
+        author: "Author 1",
+        pages: 413,
+        readState: "No",
+    },
+    {
+        title: "Book 2",
+        author: "Author 2",
+        pages: 560,
+        readState: "Yes",
+    }
+];
 
 // Book constructor
 function Book(title, author, pages, readState) {
@@ -23,21 +37,13 @@ function addBookToLibrary() {
     console.log(book.info());
 }
 
-addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
 
+// Loop through array and show all books
 function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
-        return myLibrary[i];
+        console.log(myLibrary[i]);
     }
 }
 
-console.log(displayBooks());
-
-// const arr = [];
-// function foo() {
-//   const a = Math.floor(Math.random() * 10);
-//   arr.push(a);
-// }
+(displayBooks());
 
