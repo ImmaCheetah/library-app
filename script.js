@@ -57,13 +57,23 @@ function displayBooks() {
         const bookPages = document.createElement('p');
         const bookState = document.createElement('p');
 
+        bookTitle.textContent += myLibrary[i].title;
+        bookAuthor.textContent += myLibrary[i].author;
+        bookPages.textContent += myLibrary[i].pages;
+        bookState.textContent += myLibrary[i].readState;
 
+        bookCard.append(bookTitle);
+        bookCard.append(bookAuthor);
+        bookCard.append(bookPages);
+        bookCard.append(bookState);
 
-        bookCard.innerHTML += myLibrary[i].title;
-        bookCard.innerHTML += myLibrary[i].author;
-        bookCard.innerHTML += myLibrary[i].pages;
-        bookCard.innerHTML += myLibrary[i].readState;
-        bookContainer.appendChild(bookCard);
+        bookContainer.append(bookCard);
+
+        // bookCard.innerHTML += myLibrary[i].title;
+        // bookCard.innerHTML += myLibrary[i].author;
+        // bookCard.innerHTML += myLibrary[i].pages;
+        // bookCard.innerHTML += myLibrary[i].readState;
+        // bookContainer.appendChild(bookCard);
     }
 }
 
