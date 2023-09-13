@@ -15,12 +15,6 @@ const myLibrary = [
         pages: 560,
         readState: "Yes",
     },
-    {
-        title: "Book 3",
-        author: "Author 3",
-        pages: 189,
-        readState: "Yes",
-    },
 ];
 
 // Book constructor
@@ -77,6 +71,8 @@ function displayBooks() {
     }
 }
 
+
+// addBookToLibrary();
 displayBooks();
 
 
