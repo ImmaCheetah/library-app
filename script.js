@@ -1,5 +1,5 @@
 const bookContainer = document.querySelector('#book-container');
-const bookCard = document.createElement('div');
+
 
 // Main array to hold all book objects
 const myLibrary = [
@@ -14,7 +14,13 @@ const myLibrary = [
         author: "Author 2",
         pages: 560,
         readState: "Yes",
-    }
+    },
+    {
+        title: "Book 3",
+        author: "Author 3",
+        pages: 189,
+        readState: "Yes",
+    },
 ];
 
 // Book constructor
@@ -40,10 +46,34 @@ function addBookToLibrary() {
 // Loop through array and show all books
 function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
+        // Card div
+        const bookCard = document.createElement('div');
+
+
+        // Add each info to element then append to div
+        // Book info
+        const bookTitle = document.createElement('h4');
+        const bookAuthor = document.createElement('p');
+        const bookPages = document.createElement('p');
+        const bookState = document.createElement('p');
+
+
+
         bookCard.innerHTML += myLibrary[i].title;
+        bookCard.innerHTML += myLibrary[i].author;
+        bookCard.innerHTML += myLibrary[i].pages;
+        bookCard.innerHTML += myLibrary[i].readState;
         bookContainer.appendChild(bookCard);
     }
 }
 
 displayBooks();
 
+
+// Start loop of array
+// Loop over each object
+// Make a blank book card div element (card) every run
+// Start second loop inside 
+// Create dom elements for object keys
+// Add/append key values to elements
+// Append those to the div
