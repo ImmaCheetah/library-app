@@ -1,3 +1,6 @@
+const bookContainer = document.querySelector('#book-container');
+const bookCard = document.createElement('div');
+
 // Main array to hold all book objects
 const myLibrary = [
     {
@@ -20,9 +23,6 @@ function Book(title, author, pages, readState) {
     this.author = author
     this.pages = pages
     this.readState = readState
-    // this.info = function() {
-    //     return `${title} by ${author}, ${pages} pages, ${readState}`;
-    // }
 }
 
 // Set info function to prototype of Book
@@ -37,13 +37,13 @@ function addBookToLibrary() {
     console.log(book.info());
 }
 
-
 // Loop through array and show all books
 function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i]);
+        bookCard.innerHTML += myLibrary[i].title;
+        bookContainer.appendChild(bookCard);
     }
 }
 
-(displayBooks());
+displayBooks();
 
