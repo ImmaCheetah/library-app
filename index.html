@@ -11,7 +11,39 @@
     <div id="container">
         <div id="book-container" class="book-container">
         </div>
-        <button id="add-btn">NEW BOOK</button>
+        <button id="new-book-btn">NEW BOOK</button>
+        <dialog id="dialog">
+            <form action="">
+                <div class="form-header form-div">
+                    <h3 class="form-title">Add a Book</h3>
+                    <button class="close-btn" type="submit" aria-label="close" formmethod="dialog" formnovalidate>X</button>
+                </div>
+                <div id="book-title-div" class="form-div">
+                    <label for="book-title">Book Title</label>
+                    <input type="text" name="book-title" id="book-title" placeholder="The 4th Monkey" required>
+                    <span></span>
+                </div>
+                <div id="book-author-div" class="form-div">
+                    <label for="book-author">Author</label>
+                    <input type="text" name="book-author" id="book-author" placeholder="J. D. Barker" required>
+                    <span></span>
+                </div>
+                <div id="book-pages-div" class="form-div">
+                    <label for="book-pages">Number of Pages</label>
+                    <input type="number" name="book-pages" id="book-pages" min="1" max="10000" required>
+                    <span></span>
+                </div>
+                <div id="book-state-div" class="form-div">
+                    <label for="book-state">Has book been read?</label>
+                    <input type="checkbox" name="book-state" id="book-state">
+                    <span></span>
+                </div>
+                <div id="confirm-div" class="form-div">
+                    <button type="submit">Add</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </form>
+        </dialog>
     </div>
     <script src="script.js" defer></script>
 </body>
