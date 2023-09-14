@@ -1,4 +1,6 @@
 const bookContainer = document.querySelector('#book-container');
+const dialog = document.getElementById('dialog');
+const newBookBtn = document.getElementById('new-book-btn');
 
 
 // Main array to hold all book objects
@@ -71,10 +73,16 @@ function displayBooks() {
     }
 }
 
-
 // addBookToLibrary();
 displayBooks();
 
+
+// Event Listeners
+
+// Open modal when clicked
+newBookBtn.addEventListener('click', (e) => {
+    dialog.showModal();
+});
 
 // Start loop of array
 // Loop over each object
