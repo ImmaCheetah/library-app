@@ -105,6 +105,7 @@ addBtn.addEventListener('click', (e) => {
     event.preventDefault();
     addBookToLibrary();
     displayBooks();
+    dialog.close();
 });
 
 
