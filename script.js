@@ -34,22 +34,26 @@ Book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.readState}`;
 }
 
-// Creates new variable each time it's called and adds new object to myLibrary array
+// Get values from form fields and use it to create new book object
 function addBookToLibrary() {
     // const book = new Book(prompt('title?'), prompt('author?'), prompt('pages?'), prompt('read?'));
 
+    // Target each form field
     const bookTitleInForm = form.elements['book-title'];
     const bookAuthorInForm = form.elements['book-author'];
     const bookPagesInForm = form.elements['book-pages'];
     const bookStateInForm = form.elements['book-state'];
 
+    // Assign field value to variable
     let title = bookTitleInForm.value;
     let author = bookAuthorInForm.value;
     let pages = bookPagesInForm.value;
     let state = bookStateInForm.value;
 
+    // Use variable to create new book object
     const book = new Book(title, author, pages, state);
 
+    //Add object to array
     myLibrary.push(book);
     console.log(book);
 
@@ -70,6 +74,7 @@ function displayBooks() {
         const bookPages = document.createElement('p');
         const bookState = document.createElement('p');
 
+        // 
         bookTitle.textContent += myLibrary[i].title;
         bookAuthor.textContent += myLibrary[i].author;
         bookPages.textContent += myLibrary[i].pages;
@@ -81,12 +86,6 @@ function displayBooks() {
         bookCard.append(bookState);
 
         bookContainer.append(bookCard);
-
-        // bookCard.innerHTML += myLibrary[i].title;
-        // bookCard.innerHTML += myLibrary[i].author;
-        // bookCard.innerHTML += myLibrary[i].pages;
-        // bookCard.innerHTML += myLibrary[i].readState;
-        // bookContainer.appendChild(bookCard);
     }
 }
 
