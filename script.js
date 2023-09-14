@@ -1,6 +1,8 @@
 const bookContainer = document.querySelector('#book-container');
 const dialog = document.getElementById('dialog');
 const newBookBtn = document.getElementById('new-book-btn');
+const form = document.getElementById('main-form');
+const addBtn = document.getElementById('add-btn');
 
 
 // Main array to hold all book objects
@@ -34,9 +36,24 @@ Book.prototype.info = function() {
 
 // Creates new variable each time it's called and adds new object to myLibrary array
 function addBookToLibrary() {
-    const book = new Book(prompt('title?'), prompt('author?'), prompt('pages?'), prompt('read?'));
+    // const book = new Book(prompt('title?'), prompt('author?'), prompt('pages?'), prompt('read?'));
+
+    const bookTitleInForm = form.elements['book-title'];
+    const bookAuthorInForm = form.elements['book-author'];
+    const bookPagesInForm = form.elements['book-pages'];
+    const bookStateInForm = form.elements['book-state'];
+
+    let title = bookTitleInForm.value;
+    let author = bookAuthorInForm.value;
+    let pages = bookPagesInForm.value;
+    let state = bookStateInForm.value;
+
+    const book = new Book(title, author, pages, state);
+
     myLibrary.push(book);
-    console.log(book.info());
+    console.log(book);
+
+    // Take value from each field and add to object
 }
 
 // Loop through array and show all books
@@ -83,6 +100,14 @@ displayBooks();
 newBookBtn.addEventListener('click', (e) => {
     dialog.showModal();
 });
+
+
+addBtn.addEventListener('click', (e) => {
+    event.preventDefault();
+    addBookToLibrary();
+    displayBooks();
+});
+
 
 // Start loop of array
 // Loop over each object
