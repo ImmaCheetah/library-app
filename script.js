@@ -63,23 +63,26 @@ function displayBooks() {
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
 
-        // Create elements for book info
+        // Create elements for book 
         const bookTitle = document.createElement('h4');
         const bookAuthor = document.createElement('p');
         const bookPages = document.createElement('p');
         const bookState = document.createElement('p');
+        const removeBtn = document.createElement('button');
 
         // Add book content to elements
         bookTitle.textContent += myLibrary[i].title;
         bookAuthor.textContent += myLibrary[i].author;
         bookPages.textContent += myLibrary[i].pages;
         bookState.textContent += myLibrary[i].readState;
+        removeBtn.textContent += "Remove";
 
         // Add book info to book card
         bookCard.append(bookTitle);
         bookCard.append(bookAuthor);
         bookCard.append(bookPages);
         bookCard.append(bookState);
+        bookCard.append(removeBtn);
 
         // Add card to container
         bookContainer.append(bookCard);
@@ -99,7 +102,7 @@ newBookBtn.addEventListener('click', (e) => {
 
 // Add book from form to display, then update display and close modal
 addBtn.addEventListener('click', (e) => {
-    event.preventDefault();
+    e.preventDefault();
     addBookToLibrary();
     displayBooks();
     dialog.close();
