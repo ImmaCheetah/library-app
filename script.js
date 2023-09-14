@@ -13,12 +13,6 @@ const myLibrary = [
         pages: 413,
         readState: "No",
     },
-    {
-        title: "Book 2",
-        author: "Author 2",
-        pages: 560,
-        readState: "Yes",
-    },
 ];
 
 // Book constructor
@@ -36,7 +30,6 @@ Book.prototype.info = function() {
 
 // Get values from form fields and use it to create new book object
 function addBookToLibrary() {
-    // const book = new Book(prompt('title?'), prompt('author?'), prompt('pages?'), prompt('read?'));
 
     // Target each form field
     const bookTitleInForm = form.elements['book-title'];
@@ -62,7 +55,10 @@ function addBookToLibrary() {
 
 // Loop through array and show all books
 function displayBooks() {
+    bookContainer.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
+        
+
         // Card div
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
@@ -88,9 +84,9 @@ function displayBooks() {
         // Add card to container
         bookContainer.append(bookCard);
     }
+    
 }
 
-// addBookToLibrary();
 displayBooks();
 
 
