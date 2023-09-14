@@ -49,16 +49,12 @@ function addBookToLibrary() {
     //Add object to array
     myLibrary.push(book);
     console.log(book);
-
-    // Take value from each field and add to object
 }
 
 // Loop through array and show all books
 function displayBooks() {
     bookContainer.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
-        
-
         // Card div
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
@@ -68,7 +64,7 @@ function displayBooks() {
         const bookAuthor = document.createElement('p');
         const bookPages = document.createElement('p');
         const bookState = document.createElement('p');
-        const removeBtn = document.createElement('button');
+        // const removeBtn = document.createElement('button');
 
         // Add book content to elements
         bookTitle.textContent += myLibrary[i].title;
@@ -83,6 +79,9 @@ function displayBooks() {
         bookCard.append(bookPages);
         bookCard.append(bookState);
         bookCard.append(removeBtn);
+
+        // Add data attribute to card that links the index of array
+        bookCard.setAttribute('data-state', i);
 
         // Add card to container
         bookContainer.append(bookCard);
@@ -108,3 +107,6 @@ addBtn.addEventListener('click', (e) => {
     dialog.close();
 });
 
+// removeBtn.addEventListener('click', (e) => {
+//     bookCard.remove();
+// });
