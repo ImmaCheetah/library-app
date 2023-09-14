@@ -67,24 +67,25 @@ function displayBooks() {
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
 
-        // Add each info to element then append to div
-        // Book info
+        // Create elements for book info
         const bookTitle = document.createElement('h4');
         const bookAuthor = document.createElement('p');
         const bookPages = document.createElement('p');
         const bookState = document.createElement('p');
 
-        // 
+        // Add book content to elements
         bookTitle.textContent += myLibrary[i].title;
         bookAuthor.textContent += myLibrary[i].author;
         bookPages.textContent += myLibrary[i].pages;
         bookState.textContent += myLibrary[i].readState;
 
+        // Add book info to book card
         bookCard.append(bookTitle);
         bookCard.append(bookAuthor);
         bookCard.append(bookPages);
         bookCard.append(bookState);
 
+        // Add card to container
         bookContainer.append(bookCard);
     }
 }
@@ -100,7 +101,7 @@ newBookBtn.addEventListener('click', (e) => {
     dialog.showModal();
 });
 
-
+// Add book from form to display, then update display and close modal
 addBtn.addEventListener('click', (e) => {
     event.preventDefault();
     addBookToLibrary();
@@ -108,11 +109,3 @@ addBtn.addEventListener('click', (e) => {
     dialog.close();
 });
 
-
-// Start loop of array
-// Loop over each object
-// Make a blank book card div element (card) every run
-// Start second loop inside 
-// Create dom elements for object keys
-// Add/append key values to elements
-// Append those to the div
