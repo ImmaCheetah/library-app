@@ -90,13 +90,14 @@ function displayBooks() {
         // Add card to container
         bookContainer.append(bookCard);
 
-        removeBtn.addEventListener('click', removeBook);
+        removeBtn.addEventListener('click', () => {
+            removeBook(event.target);
+        });
     }
 }
 
-function removeBook(e) {
-    bookCard.remove();
-    console.log(bookCard.dataset.index);
+function removeBook(book) {
+    bookContainer.removeChild(book.parentElement);
 }
 
 displayBooks();
