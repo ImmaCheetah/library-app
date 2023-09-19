@@ -96,8 +96,12 @@ function displayBooks() {
     }
 }
 
+// Removes book card div and book from array
 function removeBook(book) {
     bookContainer.removeChild(book.parentElement);
+
+    myLibrary.splice(book.parentElement.dataset.index, 1);
+    console.log(myLibrary);
 }
 
 displayBooks();
