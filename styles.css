@@ -50,7 +50,7 @@ table {
     --header: #A50519;
     --border-clr: #A50519;
     --main-text-clr: rgb(255, 254, 254);
-    --bg: #E4DEC8;
+    --bg: #faebd7;
     --cards: rgb(254, 253, 253);
     --light-txt-clr: rgb(148, 148, 148);
 }
@@ -81,7 +81,6 @@ h1 {
 
 /* MAIN CONTAINER || */
 #container {
-
     margin-left: 15%;
     margin-right: 15%;
 }
