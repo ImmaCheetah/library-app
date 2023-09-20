@@ -26,7 +26,8 @@ function Book(title, author, pages, readState) {
 
 // Set info function to prototype of Book
 Book.prototype.status = function() {
-    this.readState.toggle
+    
+    
 }
 
 // Get values from form fields and use it to create new book object
@@ -115,6 +116,7 @@ displayBooks();
 // Open modal when clicked
 newBookBtn.addEventListener('click', (e) => {
     dialog.showModal();
+    form.reset();
 });
 
 // Add book from form to display, then update display and close modal
