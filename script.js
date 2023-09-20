@@ -1,3 +1,4 @@
+// Global variables
 const bookContainer = document.querySelector('#book-container');
 const dialog = document.getElementById('dialog');
 const newBookBtn = document.getElementById('new-book-btn');
