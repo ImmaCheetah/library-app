@@ -44,8 +44,46 @@ table {
 	border-spacing: 0;
 }
 
+/* VARIABLES || */
+:root {
+    --primary-clr: #381d1f;
+    --header: #A50519;
+    --border-clr: #A50519;
+    --main-text-clr: rgb(255, 254, 254);
+    --bg: #E4DEC8;
+    --cards: rgb(254, 253, 253);
+    --light-txt-clr: rgb(148, 148, 148);
+}
+
+/* BASIC STYLING || */
+body {
+    background-color: var(--bg);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER || */
+.header {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-clr);
+}
+
+h1 {
+    font-size: 72px;
+    color: var(--main-text-clr);
+}
+
+
+/* BOOK CARD || */
 .book-card {
     /* height: 100px; */
-    background-color: rgb(160, 202, 202);
+    background-color: var(--main-text-clr);
     border: 1px solid black;
+
 }

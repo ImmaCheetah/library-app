@@ -28,6 +28,9 @@ function Book(title, author, pages, readState) {
 // Set info function to prototype of Book
 Book.prototype.status = function() {
     
+    if (bookState.textContent === beenRead) {
+        
+    }
     
 }
 
