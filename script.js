@@ -4,9 +4,6 @@ const newBookBtn = document.getElementById('new-book-btn');
 const form = document.getElementById('main-form');
 const addBtn = document.getElementById('add-btn');
 
-
-
-
 // Main array to hold all book objects
 const myLibrary = [
     {
@@ -26,8 +23,8 @@ function Book(title, author, pages, readState) {
 }
 
 // Set info function to prototype of Book
-Book.prototype.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.readState}`;
+Book.prototype.status = function() {
+    this.readState.toggle
 }
 
 // Get values from form fields and use it to create new book object
@@ -43,19 +40,19 @@ function addBookToLibrary() {
     let title = bookTitleInForm.value;
     let author = bookAuthorInForm.value;
     let pages = bookPagesInForm.value;
-    let state = bookStateInForm.value;
+    let state = bookStateInForm.checked;
 
     // Use variable to create new book object
     const book = new Book(title, author, pages, state);
 
     //Add object to array
     myLibrary.push(book);
-    console.log(book.info());
 }
 
 // Loop through array and show all books
 function displayBooks() {
     bookContainer.innerHTML = "";
+
     for (let i = 0; i < myLibrary.length; i++) {
         // Card div
         const bookCard = document.createElement('div');
@@ -65,10 +62,8 @@ function displayBooks() {
         const bookTitle = document.createElement('h4');
         const bookAuthor = document.createElement('p');
         const bookPages = document.createElement('p');
-        const bookState = document.createElement('p');
-        
-        const removeBtn = document.createElement('button');
-        
+        const bookState = document.createElement('button');
+        const removeBtn = document.createElement('button'); 
 
         // Add book content to elements
         bookTitle.textContent += myLibrary[i].title;
@@ -90,6 +85,7 @@ function displayBooks() {
         // Add card to container
         bookContainer.append(bookCard);
 
+        // Run removeBook when button is clicked
         removeBtn.addEventListener('click', () => {
             removeBook(event.target);
         });
