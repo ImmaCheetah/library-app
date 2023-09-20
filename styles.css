@@ -79,11 +79,28 @@ h1 {
     color: var(--main-text-clr);
 }
 
+/* MAIN CONTAINER || */
+#container {
+
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+
+/* BOOK CONTAINER || */
+#book-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
 
 /* BOOK CARD || */
 .book-card {
     /* height: 100px; */
     background-color: var(--main-text-clr);
     border: 1px solid black;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
 }
