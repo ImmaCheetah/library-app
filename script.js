@@ -3,6 +3,8 @@ const dialog = document.getElementById('dialog');
 const newBookBtn = document.getElementById('new-book-btn');
 const form = document.getElementById('main-form');
 const addBtn = document.getElementById('add-btn');
+let beenRead = "Book has been read";
+let notBeenRead = "Book has not been read";
 
 // Main array to hold all book objects
 const myLibrary = [
@@ -69,15 +71,13 @@ function displayBooks() {
         bookTitle.textContent += myLibrary[i].title;
         bookAuthor.textContent += myLibrary[i].author;
         bookPages.textContent += myLibrary[i].pages;
-        
         removeBtn.textContent += "Remove";
 
-        console.log(myLibrary[i].readState);
-
+        // Change button text based on read state
         if (myLibrary[i].readState === true) {
-            bookState.textContent += "Book has been read";
+            bookState.textContent += beenRead;
         } else {
-            bookState.textContent += "Book has not been read";
+            bookState.textContent += notBeenRead;
         };
 
         // Add book info to book card
