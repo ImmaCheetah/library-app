@@ -69,8 +69,16 @@ function displayBooks() {
         bookTitle.textContent += myLibrary[i].title;
         bookAuthor.textContent += myLibrary[i].author;
         bookPages.textContent += myLibrary[i].pages;
-        bookState.textContent += myLibrary[i].readState;
+        
         removeBtn.textContent += "Remove";
+
+        console.log(myLibrary[i].readState);
+
+        if (myLibrary[i].readState === true) {
+            bookState.textContent += "Book has been read";
+        } else {
+            bookState.textContent += "Book has not been read";
+        };
 
         // Add book info to book card
         bookCard.append(bookTitle);
