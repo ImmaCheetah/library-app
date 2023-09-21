@@ -81,8 +81,10 @@ h1 {
 
 /* MAIN CONTAINER || */
 #container {
-    margin-left: 15%;
-    margin-right: 15%;
+    min-width: 70%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
 }
 
 

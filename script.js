@@ -75,7 +75,7 @@ function displayBooks() {
         // Add book content to elements
         bookTitle.textContent += myLibrary[i].title;
         bookAuthor.textContent += myLibrary[i].author;
-        bookPages.textContent += myLibrary[i].pages;
+        bookPages.textContent += "Pages: " + myLibrary[i].pages;
         removeBtn.textContent += "Remove";
 
         // Change button text based on read state
