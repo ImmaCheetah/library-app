@@ -183,3 +183,17 @@ h1 {
     font-size: 14px;
     padding: 8px;
 }
+
+#confirm-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#confirm-div button {
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+    height: 40px;
+}
