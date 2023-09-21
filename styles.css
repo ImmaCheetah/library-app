@@ -76,10 +76,24 @@ body {
     background-color: var(--primary-clr);
     font-weight: 700;
     box-shadow: 5px 6px 13px -1px rgba(0,0,0,0.17);
+    gap: 50px;
 }
 
 h1 {
     font-size: 72px;
+    color: var(--main-text-clr);
+}
+
+#new-book-btn {
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+    /* height: 40px; */
+    padding: 10px;
+    width: 200px;
+    font-weight: bold;
+    background-color: var(--header);
     color: var(--main-text-clr);
 }
 
@@ -104,9 +118,8 @@ h1 {
 .book-card {
     /* height: 100px; */
     background-color: var(--main-text-clr);
-    border: 1px solid black;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
     gap: 10px;
     border-radius: 20px;
     padding: 10px; 
@@ -115,7 +128,6 @@ h1 {
 
 .book-card h4,
 .book-card p {
-    /* padding: 10px; */
     text-align: center;
     font-size: 30px;
 }
