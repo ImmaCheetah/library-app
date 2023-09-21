@@ -78,6 +78,9 @@ function displayBooks() {
         bookPages.textContent += "Pages: " + myLibrary[i].pages;
         removeBtn.textContent += "Remove";
 
+        bookTitle.style.fontStyle = "italic";
+        bookTitle.style.fontWeight = "bold";
+
         // Change button text based on read state
         if (myLibrary[i].readState === true) {
             bookState.textContent += beenRead;
