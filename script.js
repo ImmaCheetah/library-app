@@ -4,8 +4,8 @@ const dialog = document.getElementById('dialog');
 const newBookBtn = document.getElementById('new-book-btn');
 const form = document.getElementById('main-form');
 const addBtn = document.getElementById('add-btn');
-let beenRead = "Book has been read";
-let notBeenRead = "Book has not been read";
+let beenRead = "Read";
+let notBeenRead = "Not Read";
 
 // Main array to hold all book objects
 const myLibrary = [
