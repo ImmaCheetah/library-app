@@ -4,6 +4,8 @@ const dialog = document.getElementById('dialog');
 const newBookBtn = document.getElementById('new-book-btn');
 const form = document.getElementById('main-form');
 const addBtn = document.getElementById('add-btn');
+const closeBtn = document.querySelector('.close-btn');
+
 let beenRead = "Read";
 let notBeenRead = "Not Read";
 
@@ -143,4 +145,10 @@ form.addEventListener('submit', (e) => {
         displayBooks();
         dialog.close();
     }
+});
+
+// Close dialog
+closeBtn.addEventListener('click', (e) => {
+    dialog.close();
+    form.reset();
 });
