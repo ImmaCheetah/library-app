@@ -7,6 +7,11 @@ const addBtn = document.getElementById('add-btn');
 let beenRead = "Read";
 let notBeenRead = "Not Read";
 
+const bookTitleInForm = form.elements['book-title'];
+const bookAuthorInForm = form.elements['book-author'];
+const bookPagesInForm = form.elements['book-pages'];
+const bookStateInForm = form.elements['book-state'];
+
 // Main array to hold all book objects
 const myLibrary = [
     {
@@ -38,10 +43,7 @@ Book.prototype.status = function() {
 function addBookToLibrary() {
 
     // Target each form field
-    const bookTitleInForm = form.elements['book-title'];
-    const bookAuthorInForm = form.elements['book-author'];
-    const bookPagesInForm = form.elements['book-pages'];
-    const bookStateInForm = form.elements['book-state'];
+    
 
     // Assign field value to variable
     let title = bookTitleInForm.value;
@@ -127,10 +129,18 @@ newBookBtn.addEventListener('click', (e) => {
 });
 
 // Add book from form to display, then update display and close modal
-addBtn.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
-    addBookToLibrary();
-    displayBooks();
-    dialog.close();
-});
 
+    let formTitleCheck = bookTitleInForm.value;
+    let formAuthorCheck = bookAuthorInForm.value;
+    let formPagesCheck = bookPagesInForm.value;
+
+    if (formTitleCheck === "" || formAuthorCheck === "" || formPagesCheck === "") {
+        return;
+    } else {
+        addBookToLibrary();
+        displayBooks();
+        dialog.close();
+    }
+});
