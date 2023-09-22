@@ -28,16 +28,18 @@ function Book(title, author, pages, readState) {
 }
 
 // Set info function to prototype of Book
-Book.prototype.status = function() {
+Book.prototype.toggleStatus = function() {
 
     if (this.readState === true) {
-        this.readState === false;
+        this.readState = false;
+        console.log(this.readState);
     } else if (this.readState === false) {
-        this.readState === true;
+        this.readState = true;
+        console.log(this.readState);
     } else {
         console.log('Error');
     }
-    console.log(this.readState);
+    
 }
 
 // Get values from form fields and use it to create new book object
@@ -85,10 +87,10 @@ function displayBooks() {
         // Change button text based on read state
         if (myLibrary[i].readState === true) {
             bookState.textContent += beenRead;
-            bookState.style.backgroundColor = 'rgb(140, 245, 149)';
+            // bookState.style.backgroundColor = 'rgb(140, 245, 149)';
         } else {
             bookState.textContent += notBeenRead;
-            bookState.style.backgroundColor = 'rgb(140, 245, 149)';
+            // bookState.style.backgroundColor = 'rgb(140, 245, 149)';
         };
 
         // Add book info to book card
@@ -113,11 +115,11 @@ function displayBooks() {
             if (bookState.textContent === beenRead) {
                 bookState.textContent = notBeenRead;
                 bookState.style.backgroundColor = 'rgb(255, 124, 124)';
-                myLibrary[i].status();
+                myLibrary[i].toggleStatus();
             } else if (bookState.textContent === notBeenRead) {
                 bookState.textContent = beenRead;
                 bookState.style.backgroundColor = 'rgb(140, 245, 149)';
-                myLibrary[i].status();
+                myLibrary[i].toggleStatus();
             } else {
                 console.log('Error from book state');
             }
