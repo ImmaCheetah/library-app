@@ -16,12 +16,7 @@ const bookStateInForm = form.elements['book-state'];
 
 // Main array to hold all book objects
 const myLibrary = [
-    {
-        title: "Book 1",
-        author: "Author 1",
-        pages: 413,
-        readState: "No",
-    },
+    
 ];
 
 // Book constructor
@@ -35,19 +30,18 @@ function Book(title, author, pages, readState) {
 // Set info function to prototype of Book
 Book.prototype.status = function() {
 
-    console.log(this.readState);
-
     if (this.readState === true) {
         this.readState === false;
-    } else {
+    } else if (this.readState === false) {
         this.readState === true;
+    } else {
+        console.log('Error');
+    }
+    console.log(this.readState);
 }
 
 // Get values from form fields and use it to create new book object
 function addBookToLibrary() {
-
-    // Target each form field
-    
 
     // Assign field value to variable
     let title = bookTitleInForm.value;
@@ -57,8 +51,7 @@ function addBookToLibrary() {
 
     // Use variable to create new book object
     const book = new Book(title, author, pages, state);
-    book.status();
-
+    
     //Add object to array
     myLibrary.push(book);
 }
@@ -88,14 +81,15 @@ function displayBooks() {
         bookTitle.style.fontStyle = "italic";
         bookTitle.style.fontWeight = "bold";
 
+
         // Change button text based on read state
         if (myLibrary[i].readState === true) {
             bookState.textContent += beenRead;
+            bookState.style.backgroundColor = 'rgb(140, 245, 149)';
         } else {
             bookState.textContent += notBeenRead;
+            bookState.style.backgroundColor = 'rgb(140, 245, 149)';
         };
-
-        bookState.classList.add('status-btn');
 
         // Add book info to book card
         bookCard.append(bookTitle);
@@ -114,6 +108,21 @@ function displayBooks() {
         removeBtn.addEventListener('click', () => {
             removeBook(event.target);
         });
+
+        bookState.addEventListener('click', (e) => {
+            if (bookState.textContent === beenRead) {
+                bookState.textContent = notBeenRead;
+                bookState.style.backgroundColor = 'rgb(255, 124, 124)';
+                myLibrary[i].status();
+            } else if (bookState.textContent === notBeenRead) {
+                bookState.textContent = beenRead;
+                bookState.style.backgroundColor = 'rgb(140, 245, 149)';
+                myLibrary[i].status();
+            } else {
+                console.log('Error from book state');
+            }
+        });
+
     }
 }
 
