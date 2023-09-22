@@ -87,10 +87,10 @@ function displayBooks() {
         // Change button text based on read state
         if (myLibrary[i].readState === true) {
             bookState.textContent += beenRead;
-            // bookState.style.backgroundColor = 'rgb(140, 245, 149)';
+            bookState.style.backgroundColor = 'rgb(140, 245, 149)';
         } else {
             bookState.textContent += notBeenRead;
-            // bookState.style.backgroundColor = 'rgb(140, 245, 149)';
+            bookState.style.backgroundColor = 'rgb(255, 124, 124)';
         };
 
         // Add book info to book card
