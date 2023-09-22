@@ -34,11 +34,13 @@ function Book(title, author, pages, readState) {
 
 // Set info function to prototype of Book
 Book.prototype.status = function() {
-    
-    if (bookState.textContent === beenRead) {
-        
-    }
-    
+
+    console.log(this.readState);
+
+    if (this.readState === true) {
+        this.readState === false;
+    } else {
+        this.readState === true;
 }
 
 // Get values from form fields and use it to create new book object
@@ -55,6 +57,7 @@ function addBookToLibrary() {
 
     // Use variable to create new book object
     const book = new Book(title, author, pages, state);
+    book.status();
 
     //Add object to array
     myLibrary.push(book);
@@ -92,6 +95,8 @@ function displayBooks() {
             bookState.textContent += notBeenRead;
         };
 
+        bookState.classList.add('status-btn');
+
         // Add book info to book card
         bookCard.append(bookTitle);
         bookCard.append(bookAuthor);
@@ -121,6 +126,7 @@ function removeBook(book) {
 }
 
 displayBooks();
+
 
 // Event Listeners
 
