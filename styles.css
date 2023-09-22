@@ -124,6 +124,7 @@ h1 {
     border-radius: 20px;
     padding: 10px; 
     box-shadow: 5px 6px 13px -1px rgba(0,0,0,0.17);
+    overflow-wrap: break-word;
 }
 
 .book-card h4,
