@@ -19,28 +19,50 @@ const myLibrary = [
     
 ];
 
-// Book constructor
-function Book(title, author, pages, readState) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.readState = readState
+// Book class
+class Book {
+    constructor(title, author, pages, readState) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readState = readState;
+    }
+
+    toggleStatus() {
+        if (this.readState === true) {
+            this.readState = false;
+            console.log(this.readState);
+        } else if (this.readState === false) {
+            this.readState = true;
+            console.log(this.readState);
+        } else {
+            console.log('Error');
+        }
+    }
 }
+
+// Book constructor
+// function Book(title, author, pages, readState) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.readState = readState
+// }
 
 // Set info function to prototype of Book
-Book.prototype.toggleStatus = function() {
+// Book.prototype.toggleStatus = function() {
 
-    if (this.readState === true) {
-        this.readState = false;
-        console.log(this.readState);
-    } else if (this.readState === false) {
-        this.readState = true;
-        console.log(this.readState);
-    } else {
-        console.log('Error');
-    }
+//     if (this.readState === true) {
+//         this.readState = false;
+//         console.log(this.readState);
+//     } else if (this.readState === false) {
+//         this.readState = true;
+//         console.log(this.readState);
+//     } else {
+//         console.log('Error');
+//     }
     
-}
+// }
 
 // Get values from form fields and use it to create new book object
 function addBookToLibrary() {
