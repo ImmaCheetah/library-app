@@ -186,9 +186,10 @@ form.addEventListener('submit', (e) => {
         dialog.close();
     }
 });
-
+// bookTitleInForm.value = null;
 bookTitleInForm.addEventListener('input', (e)=> {
-    if (bookTitleInForm.validity.tooShort) {
+    console.log('it happened');
+    if (bookTitleInForm.validity.valueMissing) {
         bookTitleInForm.setCustomValidity('invalid');
     } else {
         bookTitleInForm.setCustomValidity('');
