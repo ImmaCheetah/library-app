@@ -168,7 +168,7 @@ newBookBtn.addEventListener('click', (e) => {
     dialog.showModal();
     form.reset();
 });
-
+const valTitle = document.getElementById('book-title');
 // Add book from form to display, then update display and close modal
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -176,6 +176,7 @@ form.addEventListener('submit', (e) => {
     let formTitleCheck = bookTitleInForm.value;
     let formAuthorCheck = bookAuthorInForm.value;
     let formPagesCheck = bookPagesInForm.value;
+    
 
     if (formTitleCheck === "" || formAuthorCheck === "" || formPagesCheck === "") {
         return;
@@ -185,6 +186,19 @@ form.addEventListener('submit', (e) => {
         dialog.close();
     }
 });
+
+bookTitleInForm.addEventListener('input', (e)=> {
+    if (bookTitleInForm.validity.tooShort) {
+        bookTitleInForm.setCustomValidity('invalid');
+    } else {
+        bookTitleInForm.setCustomValidity('');
+    }
+})
+
+function showError() {
+   
+}
+
 
 // Close dialog
 closeBtn.addEventListener('click', (e) => {

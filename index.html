@@ -26,18 +26,18 @@
                 </div>
                 <div id="book-title-div" class="form-div">
                     <label for="book-title"></label>
-                    <input type="text" name="book-title" id="book-title" placeholder="Title" required>
-                    <span></span>
+                    <input type="text" name="book-title" id="book-title" placeholder="Title" minlength="2" required>
+                    <span class="error"></span>
                 </div>
                 <div id="book-author-div" class="form-div">
                     <label for="book-author"></label>
                     <input type="text" name="book-author" id="book-author" placeholder="Author" required>
-                    <span></span>
+                    <span class="error"></span>
                 </div>
                 <div id="book-pages-div" class="form-div">
                     <label for="book-pages"></label>
                     <input type="number" name="book-pages" id="book-pages" min="1" max="10000" placeholder="Pages" required>
-                    <span></span>
+                    <span class="error"></span>
                 </div>
                 <div id="book-state-div" class="form-div">
                     <label for="book-state">Has book been read?</label>
