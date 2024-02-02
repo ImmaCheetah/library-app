@@ -168,36 +168,43 @@ newBookBtn.addEventListener('click', (e) => {
     dialog.showModal();
     form.reset();
 });
-const valTitle = document.getElementById('book-title');
+
+const titleError = document.querySelector("#book-title + span.error")
+
+bookTitleInForm.addEventListener('input', (e)=> {
+
+    if (bookTitleInForm.validity.valid) {
+        titleError.textContent = "";
+        titleError.className = "error";
+        console.log('its valid');
+    } else {
+        showError();
+    }
+
+})
 // Add book from form to display, then update display and close modal
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    let formTitleCheck = bookTitleInForm.value;
-    let formAuthorCheck = bookAuthorInForm.value;
-    let formPagesCheck = bookPagesInForm.value;
     
-
-    if (formTitleCheck === "" || formAuthorCheck === "" || formPagesCheck === "") {
-        return;
+    if (!bookStateInForm.validity.valid) {
+        console.log('if happened');
+        showError();
     } else {
+        console.log('else happened');
         addBookToLibrary();
         displayBooks();
         dialog.close();
     }
 });
-// bookTitleInForm.value = null;
-bookTitleInForm.addEventListener('input', (e)=> {
-    console.log('it happened');
-    if (bookTitleInForm.validity.valueMissing) {
-        bookTitleInForm.setCustomValidity('invalid');
-    } else {
-        bookTitleInForm.setCustomValidity('');
-    }
-})
+
 
 function showError() {
-   
+   if (bookTitleInForm.validity.valueMissing) {
+    titleError.textContent = "Gotcha bitch, enter something";
+   } else if (bookTitleInForm.validity.tooShort) {
+    titleError.textContent = `Now hold on a minute, you need at least ${bookTitleInForm.minLength}, but your ass put ${bookTitleInForm.value.length}`;
+   }
+   titleError.className = "error active";
 }
 
 

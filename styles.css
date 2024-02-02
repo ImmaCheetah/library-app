@@ -162,10 +162,17 @@ h1 {
 .form-div {
     padding: 10px;
     font-size: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-form :nth-child(5) {
+    display: block;
 }
 
 .form-div input {
-    border: none;
+    border: 1px solid gray;
     font-size: 20px;
     border-radius: 5px;
     background-color: rgb(226, 226, 226);
@@ -197,4 +204,30 @@ h1 {
     border-radius: 10px;
     font-size: 25px;
     height: 40px;
+}
+
+/* FORM VALIDATION || */
+input:invalid {
+    border-color: #A50519;
+    background-color: #f1bbc1;
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+.error {
+    box-sizing: border-box;
+    background-color: #6f0915;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    /* position: absolute; */
+    left: 0px;
+    
+    width: 280px;
+}
+
+.error.active {
+    padding: 5px;
 }
