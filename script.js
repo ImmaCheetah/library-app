@@ -14,6 +14,9 @@ const bookAuthorInForm = form.elements['book-author'];
 const bookPagesInForm = form.elements['book-pages'];
 const bookStateInForm = form.elements['book-state'];
 
+const titleError = document.querySelector("#book-title + span.error");
+const authorError = document.querySelector("#book-author + span.error");
+const pagesError = document.querySelector("#book-pages + span.error")
 // Main array to hold all book objects
 const myLibrary = [
     
@@ -169,36 +172,59 @@ newBookBtn.addEventListener('click', (e) => {
     form.reset();
 });
 
-const titleError = document.querySelector("#book-title + span.error")
+
 
 bookTitleInForm.addEventListener('input', (e)=> {
-
     if (bookTitleInForm.validity.valid) {
         titleError.textContent = "";
         titleError.className = "error";
         console.log('its valid');
     } else {
-        showError();
+        showTitleError();
     }
-
 })
+
+bookAuthorInForm.addEventListener('input', (e)=> {
+    if (bookAuthorInForm.validity.valid) {
+        authorError.textContent = "";
+        authorError.className = "error";
+        console.log('its valid');
+    } else {
+        showAuthorError();
+    }
+})
+
+bookPagesInForm.addEventListener('input', (e)=> {
+    if (bookPagesInForm.validity.valid) {
+        pagesError.textContent = "";
+        pagesError.className = "error";
+        console.log('its valid');
+    } else {
+        showPagesError();
+    }
+})
+
 // Add book from form to display, then update display and close modal
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
     
-    if (!bookStateInForm.validity.valid) {
+    if (!bookTitleInForm.validity.valid) {
         console.log('if happened');
-        showError();
+        showTitleError();
+    } else if (!bookAuthorInForm.validity.valid) {
+        showAuthorError();
+    } else if (!bookPagesInForm.validity.valid) {
+        showPagesError();
     } else {
         console.log('else happened');
         addBookToLibrary();
         displayBooks();
         dialog.close();
     }
+    e.preventDefault();
 });
 
 
-function showError() {
+function showTitleError() {
    if (bookTitleInForm.validity.valueMissing) {
     titleError.textContent = "Gotcha bitch, enter something";
    } else if (bookTitleInForm.validity.tooShort) {
@@ -207,6 +233,25 @@ function showError() {
    titleError.className = "error active";
 }
 
+function showAuthorError() {
+    if (bookAuthorInForm.validity.valueMissing) {
+     authorError.textContent = "Gotcha bitch, enter something";
+    } else if (bookTitleInForm.validity.tooShort) {
+     authorError.textContent = `Now hold on a minute, you need at least ${bookAuthorInForm.minLength}, but your ass put ${bookAuthorInForm.value.length}`;
+    }
+    authorError.className = "error active";
+ }
+
+ function showPagesError() {
+    if (bookPagesInForm.validity.valueMissing) {
+        pagesError.textContent = "Come on man";
+    } else if (bookPagesInForm.validity.rangeOverflow) {
+        pagesError.textContent = "You went past the limit";
+    } else if (bookPagesInForm.validity.rangeUnderflow) {
+        pagesError.textContent = "What kind of book has negative pages?"
+    }
+    pagesError.className = "error active";
+ }
 
 // Close dialog
 closeBtn.addEventListener('click', (e) => {
