@@ -226,18 +226,18 @@ form.addEventListener('submit', (e) => {
 
 function showTitleError() {
    if (bookTitleInForm.validity.valueMissing) {
-    titleError.textContent = "Gotcha bitch, enter something";
+    titleError.textContent = "Gotcha, enter something";
    } else if (bookTitleInForm.validity.tooShort) {
-    titleError.textContent = `Now hold on a minute, you need at least ${bookTitleInForm.minLength}, but your ass put ${bookTitleInForm.value.length}`;
+    titleError.textContent = `Now hold on a minute, you need at least ${bookTitleInForm.minLength}, but you put ${bookTitleInForm.value.length}`;
    }
    titleError.className = "error active";
 }
 
 function showAuthorError() {
     if (bookAuthorInForm.validity.valueMissing) {
-     authorError.textContent = "Gotcha bitch, enter something";
+     authorError.textContent = "Gotcha, enter something";
     } else if (bookTitleInForm.validity.tooShort) {
-     authorError.textContent = `Now hold on a minute, you need at least ${bookAuthorInForm.minLength}, but your ass put ${bookAuthorInForm.value.length}`;
+     authorError.textContent = `Now hold on a minute, you need at least ${bookAuthorInForm.minLength}, but you put ${bookAuthorInForm.value.length}`;
     }
     authorError.className = "error active";
  }
